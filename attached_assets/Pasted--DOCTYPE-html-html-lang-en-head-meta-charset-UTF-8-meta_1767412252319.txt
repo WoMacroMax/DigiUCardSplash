@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SuccessStory Vybe - Travel & Lifestyle Stories</title>
+  <meta name="description" content="SuccessStory Vybe is a modern travel and lifestyle newsroom that showcases inspiring stories, destination features, and travel industry updates.">
+  <meta name="author" content="SuccessStory Vybe">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap" rel="stylesheet">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="SuccessStory Vybe - Travel & Lifestyle Stories">
+  <meta property="og:description" content="A modern travel and lifestyle newsroom featuring inspiring stories and destination features.">
+  <meta property="og:type" content="website">
+
+  <style>
+    /* CSS Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --background: hsl(220, 20%, 3%);
+      --foreground: hsl(0, 0%, 98%);
+      --card: hsl(220, 20%, 5%);
+      --primary: hsl(217, 100%, 65%);
+      --primary-foreground: hsl(0, 0%, 100%);
+      --secondary: hsl(320, 98%, 74%);
+      --accent: hsl(27, 100%, 55%);
+      --muted: hsl(220, 20%, 12%);
+      --muted-foreground: hsl(0, 0%, 60%);
+      --border: hsl(220, 20%, 15%);
+      --radius: 1.2rem;
+      --font-sans: 'Archivo', system-ui, sans-serif;
+      --font-display: 'Clash Display', system-ui, sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--background);
+      color: var(--foreground);
+      font-size: 1rem;
+      line-height: 2;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+    }
+
+    @media (min-width: 40em) {
+      body {
+        font-size: 1.125rem;
+      }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Wavy Background */
+    .wavy-background {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.06;
+      z-index: 0;
+    }
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background-color: var(--background);
+    }
+
+    .header-inner {
+      max-width: 1920px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+    }
+
+    .logo {
+      font-family: var(--font-sans);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--foreground);
+    }
+
+    .nav {
+      display: none;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .nav {
+        display: flex;
+      }
+    }
+
+    .nav-link {
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: var(--muted-foreground);
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--foreground);
+    }
+
+    .menu-btn {
+      display: block;
+      padding: 0.5rem;
+      background: none;
+      border: none;
+      color: var(--foreground);
+      cursor: pointer;
+    }
+
+    @media (min-width: 768px) {
+      .menu-btn {
+        display: none;
+      }
+    }
+
+    /* Main Content */
+    .main {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section {
+      padding: 2rem;
+      max-width: 1920px;
+      margin: 0 auto;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(2.5rem, 8vw + 0.625rem, 12.5rem);
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      margin-bottom: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: clamp(5rem, 10vw + 1.25rem, 15rem);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-title {
+        font-size: clamp(6.25rem, 12vw + 1.875rem, 18.75rem);
+      }
+    }
+
+    .hero-title span {
+      display: block;
+    }
+
+    .hero-description {
+      color: var(--muted-foreground);
+      font-size: 1.125rem;
+      line-height: 1.6;
+      max-width: 60ch;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .hero-description {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Articles Grid */
+    .articles-grid {
+      display: grid;
+      gap: 3rem;
+      padding: 2rem;
+      max-width: 1920px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 70px;
+      }
+    }
+
+    @media (min-width: 1180px) {
+      .articles-grid {
+        gap: 6rem;
+      }
+    }
+
+    /* Article Card */
+    .article-card {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.3s ease-out forwards;
+    }
+
+    .article-card:nth-child(2) {
+      animation-delay: 150ms;
+    }
+
+    .article-card:nth-child(3) {
+      animation-delay: 300ms;
+    }
+
+    .article-card:nth-child(4) {
+      animation-delay: 450ms;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .article-figure {
+      position: relative;
+      padding-bottom: 100%;
+      overflow: hidden;
+      background-color: var(--muted);
+      margin-bottom: 1.25rem;
+      cursor: pointer;
+    }
+
+    .article-image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease-out;
+    }
+
+    .article-figure:hover .article-image {
+      transform: scale(1.05);
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .article-date {
+      text-transform: uppercase;
+      color: var(--muted-foreground);
+      font-size: 0.75rem;
+      font-family: var(--font-sans);
+    }
+
+    .article-title {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: -0.02em;
+      margin-top: 0.1875rem;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    @media (min-width: 768px) {
+      .article-title {
+        font-size: 1.6875rem;
+      }
+    }
+
+    .article-title:hover {
+      color: var(--primary);
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--border);
+      margin-top: 6rem;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .footer-text {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+    }
+
+    /* Modal / Iframe Overlay */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      padding: 2rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-overlay.visible {
+      opacity: 1;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 1400px;
+      margin-bottom: 1rem;
+    }
+
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--foreground);
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--foreground);
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      line-height: 1;
+      transition: color 0.3s ease;
+    }
+
+    .modal-close:hover {
+      color: var(--primary);
+    }
+
+    .iframe-container {
+      width: 100%;
+      max-width: 1400px;
+      height: 80vh;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--border);
+    }
+
+    .iframe-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 300px;
+      height: 100vh;
+      background: var(--background);
+      border-left: 1px solid var(--border);
+      z-index: 100;
+      padding: 2rem;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .mobile-menu.active {
+      display: block;
+      transform: translateX(0);
+    }
+
+    .mobile-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .mobile-nav-link {
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: var(--foreground);
+      transition: color 0.3s ease;
+    }
+
+    .mobile-nav-link:hover {
+      color: var(--primary);
+    }
+
+    .mobile-menu-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: var(--foreground);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .menu-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 99;
+    }
+
+    .menu-backdrop.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <!-- Wavy Background SVG -->
+  <div class="wavy-background">
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="wave-gradient-1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="hsl(27, 100%, 55%)"></stop>
+          <stop offset="50%" stop-color="hsl(14, 100%, 57%)"></stop>
+          <stop offset="100%" stop-color="hsl(217, 100%, 65%)"></stop>
+        </linearGradient>
+        <linearGradient id="wave-gradient-2" x1="100%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="hsl(27, 100%, 55%)"></stop>
+          <stop offset="50%" stop-color="hsl(290, 90%, 60%)"></stop>
+          <stop offset="100%" stop-color="hsl(217, 100%, 65%)"></stop>
+        </linearGradient>
+      </defs>
+      <path d="M0,100 Q250,50 500,100 T1000,100 T1500,100 T2000,100 L2000,300 L0,300 Z" fill="url(#wave-gradient-1)" opacity="0.3"></path>
+      <path d="M0,200 Q300,150 600,200 T1200,200 T1800,200 L1800,400 L0,400 Z" fill="url(#wave-gradient-2)" opacity="0.2"></path>
+      <path d="M0,350 Q400,300 800,350 T1600,350 L1600,600 L0,600 Z" fill="url(#wave-gradient-1)" opacity="0.15"></path>
+      <path d="M0,500 Q350,450 700,500 T1400,500 T2100,500 L2100,800 L0,800 Z" fill="url(#wave-gradient-2)" opacity="0.25"></path>
+      <path d="M0,650 Q450,600 900,650 T1800,650 L1800,1000 L0,1000 Z" fill="url(#wave-gradient-1)" opacity="0.2"></path>
+    </svg>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">SuccessStory<Vybe     <nav class="nav">
+        <a href="#" class="nav-link" onclick="openArticle('about-james', 'Who\'s James?'); return false;">About the Author</a>
+        <a href="#" class="nav-link">Get in touch</a>
+        <a href="#" class="nav-link">Newsletter</a>
+      </nav>
+      <button class="menu-btn" onclick="toggleMobileMenu()" aria-label="Open menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="menu-backdrop" onclick="closeMobileMenu()"></div>
+  <div class="mobile-menu">
+    <button class="mobile-menu-close" onclick="closeMobileMenu()">&times;</button>
+    <nav class="mobile-nav">
+      <a href="#" class="mobile-nav-link">Home</a>
+      <a href="#" class="mobile-nav-link" onclick="openArticle('about-james', 'Who\'s James?'); closeMobileMenu(); return false;">About the Author</a>
+      <a href="#" class="mobile-nav-link">Get in touch</a>
+      <a href="#" class="mobile-nav-link">Newsletter</a>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main">
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1 class="hero-title">
+        <span>SuccessStory<span>
+      </h1>
+      <p class="hero-description">
+        SuccessStory Vybe is a modern travel and lifestyle newsroom that showcases inspiring stories, destination features, and travel industry updates.
+      </p>
+    </section>
+
+    <!-- Articles Grid -->
+    <section class="articles-grid" id="articles">
+      <!-- Articles will be populated by JavaScript -->
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p class="footer-text">© 2024 SuccessStory Vybe. All rights reserved.</p>
+  </footer>
+
+  <!-- Modal for iFrame -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-title">Article</h2>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="iframe-container">
+      <iframe id="article-iframe" src="" title="Article content"></iframe>
+    </div>
+  </div>
+
+  <script>
+    // Article data
+    const articles = [
+      {
+        slug: "about-james",
+        title: "Who's James?",
+        publishDate: "March 20, 2024",
+        image: "/images/pexels-kadeem-stewart-170429769-15786936.jpg"
+      },
+      {
+        slug: "editorial-elegance",
+        title: "Statement Jewelry",
+        publishDate: "March 15, 2024",
+        image: "/images/amina-atar-tPM3nd4J8xs-unsplash.jpg"
+      },
+      {
+        slug: "desert-dreams",
+        title: "Bold Lip",
+        publishDate: "March 15, 2024",
+        image: "/images/igor-rand-dlR-BNDWz3g-unsplash.jpg"
+      },
+      {
+        slug: "vintage-highway",
+        title: "Luxury Streetwear",
+        publishDate: "March 12, 2024",
+        image: "/images/dwayne-joe-9wubaeSG13U-unsplash (1).jpg"
+      },
+      {
+        slug: "lavender-fields",
+        title: "The Hat Edit",
+        publishDate: "March 8, 2024",
+        image: "/images/ozge-karzan-fdZjAjPUQbk-unsplash.jpg"
+      },
+      {
+        slug: "coastal-classic",
+        title: "Ocean Breeze",
+        publishDate: "March 5, 2024",
+        image: "/images/pexels-adrienne-andersen-1174503-2661255.jpg"
+      },
+      {
+        slug: "stories-unbound",
+        title: "Stories Unbound",
+        publishDate: "March 3, 2024",
+        image: "/images/pexels-ayomide-isaac-66354580-16273825.jpg"
+      },
+      {
+        slug: "circular-horizons",
+        title: "Circular Horizons",
+        publishDate: "March 1, 2024",
+        image: "/images/pexels-brianasarejr-12417686.jpg"
+      },
+      {
+        slug: "retro-revival",
+        title: "Retro Revival",
+        publishDate: "February 28, 2024",
+        image: "/images/pexels-brianasarejr-17553641.jpg"
+      },
+      {
+        slug: "golden-spheres",
+        title: "Golden Spheres",
+        publishDate: "February 25, 2024",
+        image: "/images/pexels-jameshausley-3328337.jpg"
+      }
+    ];
+
+    // Base URL for iframe - change this to your deployed app URL
+    const baseUrl = window.location.origin;
+
+    // Render articles
+    function renderArticles() {
+      const container = document.getElementById('articles');
+      container.innerHTML = articles.map((article, index) => `
+        <article class="article-card" style="animation-delay: ${(index % 2) * 150}ms">
+          <figure class="article-figure" onclick="openArticle('${article.slug}', '${article.title.replace(/'/g, "\\'")}')">
+            <img src="${article.image}" alt="${article.title}" class="article-image" loading="lazy">
+          </figure>
+          <div class="article-meta">
+            <time class="article-date">${article.publishDate}</time>
+          </div>
+          <h3 class="article-title" onclick="openArticle('${article.slug}', '${article.title.replace(/'/g, "\\'")}')">${article.title}</h3>
+        </article>
+      `).join('');
+    }
+
+    // Modal functions
+    function openArticle(slug, title) {
+      const modal = document.getElementById('modal');
+      const iframe = document.getElementById('article-iframe');
+      const modalTitle = document.getElementById('modal-title');
+      
+      // Set the iframe source to the article page
+      iframe.src = `${baseUrl}/article/${slug}`;
+      modalTitle.textContent = title;
+      
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      
+      // Fade in
+      requestAnimationFrame(() => {
+        modal.classList.add('visible');
+      });
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('modal');
+      const iframe = document.getElementById('article-iframe');
+      
+      modal.classList.remove('visible');
+      document.body.style.overflow = '';
+      
+      setTimeout(() => {
+        modal.classList.remove('active');
+        iframe.src = '';
+      }, 300);
+    }
+
+    // Mobile menu functions
+    function toggleMobileMenu() {
+      document.querySelector('.mobile-menu').classList.add('active');
+      document.querySelector('.menu-backdrop').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenu() {
+      document.querySelector('.mobile-menu').classList.remove('active');
+      document.querySelector('.menu-backdrop').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close modal on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeModal();
+        closeMobileMenu();
+      }
+    });
+
+    // Initialize
+    renderArticles();
+  </script>
+</body>
+</html>
