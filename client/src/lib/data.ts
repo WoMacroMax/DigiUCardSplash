@@ -16,6 +16,14 @@ export interface Article {
   image: string;
 }
 
+export interface Event {
+  id: string;
+  title: string;
+  date: string;
+  location: string;
+  image: string;
+}
+
 export const articles: Article[] = [
   {
     slug: "about-james",
@@ -76,5 +84,29 @@ export const articles: Article[] = [
     title: "Golden Spheres",
     publishDate: "February 25, 2024",
     image: img10
+  }
+];
+
+export const events: Event[] = [
+  {
+    id: "1",
+    title: "Summer Vybe Gala",
+    date: "July 15, 2026",
+    location: "Malibu, CA",
+    image: img1
+  },
+  {
+    id: "2",
+    title: "Travelers Summit",
+    date: "August 22, 2026",
+    location: "Reykjavik, Iceland",
+    image: img2
+  },
+  {
+    id: "3",
+    title: "Luxury Expo 2026",
+    date: "September 10, 2026",
+    location: "Milan, Italy",
+    image: img3
   }
 ];

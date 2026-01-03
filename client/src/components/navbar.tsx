@@ -9,6 +9,13 @@ export function Navbar() {
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
+  const navLinks = [
+    { name: "About the Author", href: "/article/about-james" },
+    { name: "Events", href: "#events" },
+    { name: "Get in touch", href: "#contact" },
+    { name: "Newsletter", href: "#newsletter" },
+  ];
+
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-white/5">
       <div className="max-w-[1920px] mx-auto px-8 h-[72px] flex items-center justify-between">
@@ -18,15 +25,25 @@ export function Navbar() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          <Link href="/article/about-james" className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors">
-            About the Author
-          </Link>
-          <a href="#contact" className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors">
-            Get in touch
-          </a>
-          <a href="#newsletter" className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors">
-            Newsletter
-          </a>
+          {navLinks.map((link) => (
+            link.href.startsWith("#") ? (
+              <a 
+                key={link.name} 
+                href={link.href} 
+                className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {link.name}
+              </a>
+            ) : (
+              <Link 
+                key={link.name} 
+                href={link.href} 
+                className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {link.name}
+              </Link>
+            )
+          ))}
         </nav>
 
         {/* Mobile Menu Button */}
@@ -68,15 +85,27 @@ export function Navbar() {
                 <Link href="/" onClick={closeMenu} className="text-2xl font-medium hover:text-primary transition-colors">
                   Home
                 </Link>
-                <Link href="/article/about-james" onClick={closeMenu} className="text-2xl font-medium hover:text-primary transition-colors">
-                  About the Author
-                </Link>
-                <a href="#contact" onClick={closeMenu} className="text-2xl font-medium hover:text-primary transition-colors">
-                  Get in touch
-                </a>
-                <a href="#newsletter" onClick={closeMenu} className="text-2xl font-medium hover:text-primary transition-colors">
-                  Newsletter
-                </a>
+                {navLinks.map((link) => (
+                  link.href.startsWith("#") ? (
+                    <a 
+                      key={link.name} 
+                      href={link.href} 
+                      onClick={closeMenu}
+                      className="text-2xl font-medium hover:text-primary transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <Link 
+                      key={link.name} 
+                      href={link.href} 
+                      onClick={closeMenu}
+                      className="text-2xl font-medium hover:text-primary transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  )
+                ))}
               </nav>
 
               <div className="mt-auto pt-8 border-t border-border">

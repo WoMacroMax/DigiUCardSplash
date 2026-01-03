@@ -3,7 +3,8 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { WavyBackground } from "@/components/wavy-background";
 import { ArticleCard } from "@/components/article-card";
-import { articles } from "@/lib/data";
+import { EventSection } from "@/components/event-section";
+import { articles, events } from "@/lib/data";
 
 export default function Home() {
   return (
@@ -41,6 +42,8 @@ export default function Home() {
             ))}
           </div>
         </section>
+
+        <EventSection events={events} />
       </main>
 
       <Footer />
