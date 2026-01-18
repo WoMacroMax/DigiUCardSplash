@@ -14,7 +14,7 @@ export function Navbar() {
     { name: "Splash Pages", href: "#splash" },
     { name: "Links", href: "#links" },
     { name: "Special Events", href: "#special-events" },
-    { name: "Events", href: "#events" },
+    { name: "Digital Ads", href: "#ads" },
   ];
 
   return (

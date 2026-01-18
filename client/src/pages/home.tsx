@@ -7,7 +7,8 @@ import { EventSection } from "@/components/event-section";
 import { CardShowcase } from "@/components/card-showcase";
 import { LinkInBio } from "@/components/link-in-bio";
 import { SpecialEvents } from "@/components/special-events";
-import { articles, events, showcasedCards } from "@/lib/data";
+import { DigitalAds } from "@/components/digital-ads";
+import { articles, showcasedCards } from "@/lib/data";
 
 export default function Home() {
   return (
@@ -55,7 +56,7 @@ export default function Home() {
 
         <SpecialEvents />
 
-        <EventSection events={events} />
+        <DigitalAds />
       </main>
 
       <Footer />
