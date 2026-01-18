@@ -9,13 +9,6 @@ import img8 from '@assets/stock_images/fashion_editorial_lu_11220563.jpg';
 import img9 from '@assets/stock_images/fashion_editorial_lu_fefc8bd2.jpg';
 import img10 from '@assets/stock_images/fashion_editorial_lu_0e0d7215.jpg';
 
-// Import new stock images for Splash Pages with correct filenames
-import splash1 from '@assets/stock_images/modern_landing_page__3ed23eda.jpg';
-import splash2 from '@assets/stock_images/modern_landing_page__8200d54c.jpg';
-import splash3 from '@assets/stock_images/modern_landing_page__27a82ea2.jpg';
-import splash4 from '@assets/stock_images/modern_landing_page__344936f6.jpg';
-import splash5 from '@assets/stock_images/modern_landing_page__911a94b8.jpg';
-
 export interface Article {
   slug: string;
   title: string;
@@ -46,35 +39,35 @@ export const articles: Article[] = [
     slug: "rod-page",
     title: "Rod Page",
     publishDate: "January 2026",
-    image: splash1,
+    image: "https://xrwnptogkhxeyamjcxhd.supabase.co/storage/v1/object/public/attachments/1768768860091-image.png",
     url: "https://digiucard.com/RodPage"
   },
   {
     slug: "snug-build",
     title: "Snug Build Box",
     publishDate: "January 2026",
-    image: splash2,
+    image: "https://xrwnptogkhxeyamjcxhd.supabase.co/storage/v1/object/public/attachments/1768769005067-image.png",
     url: "https://snug-build-box.lovable.app"
   },
   {
     slug: "celina-mission",
     title: "Celina Mission",
     publishDate: "January 2026",
-    image: splash3,
+    image: "https://xrwnptogkhxeyamjcxhd.supabase.co/storage/v1/object/public/attachments/1768769128792-image.png",
     url: "https://digiucard.com/CelinaMission1"
   },
   {
     slug: "software-dev-landing",
     title: "Software Dev Landing",
     publishDate: "January 2026",
-    image: splash4,
+    image: "https://xrwnptogkhxeyamjcxhd.supabase.co/storage/v1/object/public/attachments/1768768001227-image.png",
     url: "https://digiucard.com/webviewer?url=https%3A%2F%2Fdzbtuoimibbzrdyebrbg.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fcontact-files%2F20251229161712-roduploadayoblab7035962482_Rod_Womack_Software_Dev_Landing_Page_6.html&lock=1&iy=20&mw=540&my=-450&mx=-360&ms=2&vh=797&is=0.95&menu=0"
   },
   {
     slug: "sheryl-thanks",
     title: "Sheryl Thanks",
     publishDate: "January 2026",
-    image: splash5,
+    image: "https://xrwnptogkhxeyamjcxhd.supabase.co/storage/v1/object/public/attachments/1768768860091-image.png",
     url: "https://digiucard.com/Sherylthanks00"
   }
 ];
