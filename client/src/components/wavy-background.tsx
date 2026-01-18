@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 const backgroundImages = [
   "https://xrwnptogkhxeyamjcxhd.supabase.co/storage/v1/object/public/attachments/1768776731602-DigiUCard_Splash_Image_01.jpg",
@@ -8,21 +9,37 @@ const backgroundImages = [
 ];
 
 export function WavyBackground() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll();
+
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {/* Dynamic Background Image Layers */}
+    <div ref={containerRef} className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+      {/* Light background base */}
       <div className="absolute inset-0 bg-[#f8fafc]" />
       
-      {backgroundImages.map((img, index) => (
-        <motion.div
-          key={img}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.15 }}
-          transition={{ duration: 2, delay: index * 0.5 }}
-          className="absolute inset-0 bg-cover bg-center mix-blend-multiply grayscale opacity-10"
-          style={{ backgroundImage: `url(${img})` }}
-        />
-      ))}
+      {/* Dynamic Background Image Layers based on scroll */}
+      {backgroundImages.map((img, index) => {
+        const start = index / backgroundImages.length;
+        const end = (index + 1) / backgroundImages.length;
+        
+        // Use a simple transform to fade in/out based on scroll position
+        const opacity = useTransform(
+          scrollYProgress,
+          [start - 0.1, start, end, end + 0.1],
+          [0, 0.1, 0.1, 0]
+        );
+
+        return (
+          <motion.div
+            key={img}
+            style={{ 
+              backgroundImage: `url(${img})`,
+              opacity 
+            }}
+            className="absolute inset-0 bg-cover bg-center mix-blend-multiply grayscale"
+          />
+        );
+      })}
 
       {/* Animated glow blobs with lighter, softer colors */}
       <motion.div 
