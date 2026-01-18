@@ -30,7 +30,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="text-muted-foreground text-lg md:text-2xl leading-relaxed max-w-[60ch] mx-auto"
           >
-            Digi<span className="text-blue-500">U</span>Card is a modern travel and lifestyle newsroom that showcases inspiring stories, destination features, and travel industry updates.
+            DigiUCard by WoMacroMax Publishing delivers the digital version of you — your portfolio, your work, your passions, and everything you care about. Share your identity, content, and connections instantly through a single, powerful digital card.
           </motion.p>
         </section>
 
