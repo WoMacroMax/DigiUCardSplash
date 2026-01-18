@@ -29,14 +29,13 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-[70ch] mx-auto mb-12"
+            className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-[70ch] mx-auto"
           >
             DigiUCard by WoMacroMax Publishing delivers the digital version of you — your portfolio, your work, your passions, and everything you care about. Share your identity, content, and connections instantly through a single, powerful digital card.
           </motion.p>
+          
+          <CardShowcase cards={showcasedCards} />
         </section>
-
-        {/* Existing DigiUCards Preview Section */}
-        <CardShowcase cards={showcasedCards} />
 
         <section className="px-8 py-8 md:py-16 max-w-[1920px] mx-auto border-t border-white/5 mt-16">
           <div className="flex items-center justify-between mb-12">

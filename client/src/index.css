@@ -29,6 +29,12 @@
   --font-serif: 'Playfair Display', Georgia, serif;
   
   --radius: 1.2rem;
+
+  @keyframes gradient-x {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  --animate-gradient-x: gradient-x 15s ease infinite;
 }
 
 :root {
@@ -53,5 +59,12 @@
   
   html {
     scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .animate-gradient-x {
+    background-size: 200% 200%;
+    animation: gradient-x 15s ease infinite;
   }
 }
