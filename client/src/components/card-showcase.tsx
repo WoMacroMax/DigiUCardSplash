@@ -61,6 +61,6 @@ export function CardShowcase({ cards }: CardShowcaseProps) {
           </motion.div>
         ))}
       </div>
-    </section>
+    </div>
   );
 }
