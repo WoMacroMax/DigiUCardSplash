@@ -18,11 +18,11 @@ export function CardShowcase({ cards }: CardShowcaseProps) {
             transition={{ delay: index * 0.1 }}
             className="group relative flex flex-col h-full bg-card/40 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden hover:border-primary/50 transition-all duration-500 shadow-xl"
           >
-            <div className="relative aspect-[3/4] overflow-hidden">
+            <div className="relative aspect-[9/16] overflow-hidden">
               <img 
                 src={card.image} 
                 alt={card.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="w-full h-full object-contain bg-background/50 transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
               
