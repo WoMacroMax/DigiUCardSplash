@@ -16,6 +16,7 @@ export function Navbar() {
     { name: "Special Events", href: "#special-events" },
     { name: "Digital Ads", href: "#ads" },
     { name: "Documents", href: "#documents" },
+    { name: "Capabilities", href: "#features" },
   ];
 
   return (
