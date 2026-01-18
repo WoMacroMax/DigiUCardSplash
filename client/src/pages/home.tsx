@@ -5,6 +5,7 @@ import { WavyBackground } from "@/components/wavy-background";
 import { ArticleCard } from "@/components/article-card";
 import { EventSection } from "@/components/event-section";
 import { CardShowcase } from "@/components/card-showcase";
+import { LinkInBio } from "@/components/link-in-bio";
 import { articles, events, showcasedCards } from "@/lib/data";
 
 export default function Home() {
@@ -37,7 +38,7 @@ export default function Home() {
           <CardShowcase cards={showcasedCards} />
         </section>
 
-        <section className="px-8 py-8 md:py-16 max-w-[1920px] mx-auto border-t border-white/5 mt-16">
+        <section id="splash" className="px-8 py-8 md:py-16 max-w-[1920px] mx-auto border-t border-white/5 mt-16">
           <div className="flex items-center justify-between mb-12">
             <h2 className="font-display text-3xl md:text-5xl font-bold">Splash Pages</h2>
             <div className="h-px flex-grow mx-8 bg-gradient-to-r from-white/10 to-transparent hidden md:block" />
@@ -48,6 +49,8 @@ export default function Home() {
             ))}
           </div>
         </section>
+
+        <LinkInBio />
 
         <EventSection events={events} />
       </main>

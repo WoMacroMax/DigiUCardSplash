@@ -10,10 +10,10 @@ export function Navbar() {
   const closeMenu = () => setIsOpen(false);
 
   const navLinks = [
-    { name: "About the Author", href: "/article/about-james" },
+    { name: "About", href: "/article/about-james" },
+    { name: "Splash Pages", href: "#splash" },
+    { name: "Links", href: "#links" },
     { name: "Events", href: "#events" },
-    { name: "Get in touch", href: "#contact" },
-    { name: "Newsletter", href: "#newsletter" },
   ];
 
   return (
