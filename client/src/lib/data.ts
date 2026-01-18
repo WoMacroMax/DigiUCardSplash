@@ -90,7 +90,7 @@ export const showcasedCards: DigiUCardPreview[] = [
     title: "Standard Connect",
     description: "Full digital identity with active connection modules. The ultimate professional networking tool.",
     url: "https://digiucard.info/digiucard?primarychecksum=0000418de2aa&digiu_pay=false&digiu_connect=true",
-    image: img5,
+    image: "https://xrwnptogkhxeyamjcxhd.supabase.co/storage/v1/object/public/attachments/1768768860091-image.png",
     type: "Connect"
   },
   {
@@ -98,7 +98,7 @@ export const showcasedCards: DigiUCardPreview[] = [
     title: "Portfolio Edition",
     description: "Streamlined portfolio layout focusing on work and personal brand visualization.",
     url: "https://digiucard.info/digiucard?primarychecksum=00007f5b1e73",
-    image: img6,
+    image: "https://xrwnptogkhxeyamjcxhd.supabase.co/storage/v1/object/public/attachments/1768769005067-image.png",
     type: "Portfolio"
   },
   {
@@ -106,7 +106,7 @@ export const showcasedCards: DigiUCardPreview[] = [
     title: "Creator Pro",
     description: "Bespoke creator identity with modular content hubs for cross-platform presence.",
     url: "https://digiucard.info/digiucard?primarychecksum=0000210c161d",
-    image: img7,
+    image: "https://xrwnptogkhxeyamjcxhd.supabase.co/storage/v1/object/public/attachments/1768769128792-image.png",
     type: "Creator"
   },
   {
@@ -114,7 +114,7 @@ export const showcasedCards: DigiUCardPreview[] = [
     title: "Business Elite",
     description: "Corporate-grade digital business card with seamless CRM integration paths.",
     url: "https://digiucard.com/CPetDGU",
-    image: img8,
+    image: "https://xrwnptogkhxeyamjcxhd.supabase.co/storage/v1/object/public/attachments/1768769128792-image.png",
     type: "Business"
   },
   {
