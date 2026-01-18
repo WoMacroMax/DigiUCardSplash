@@ -9,12 +9,12 @@ import img8 from '@assets/stock_images/fashion_editorial_lu_11220563.jpg';
 import img9 from '@assets/stock_images/fashion_editorial_lu_fefc8bd2.jpg';
 import img10 from '@assets/stock_images/fashion_editorial_lu_0e0d7215.jpg';
 
-// Import new stock images for Splash Pages
-import splash1 from '@assets/stock_images/modern_landing_pa_4826017b.jpg';
-import splash2 from '@assets/stock_images/modern_landing_pa_3726017b.jpg';
-import splash3 from '@assets/stock_images/modern_landing_pa_2626017b.jpg';
-import splash4 from '@assets/stock_images/modern_landing_pa_1526017b.jpg';
-import splash5 from '@assets/stock_images/modern_landing_pa_0426017b.jpg';
+// Import new stock images for Splash Pages with correct filenames
+import splash1 from '@assets/stock_images/modern_landing_page__3ed23eda.jpg';
+import splash2 from '@assets/stock_images/modern_landing_page__8200d54c.jpg';
+import splash3 from '@assets/stock_images/modern_landing_page__27a82ea2.jpg';
+import splash4 from '@assets/stock_images/modern_landing_page__344936f6.jpg';
+import splash5 from '@assets/stock_images/modern_landing_page__911a94b8.jpg';
 
 export interface Article {
   slug: string;
