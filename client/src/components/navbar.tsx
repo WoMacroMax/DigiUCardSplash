@@ -1,10 +1,20 @@
-import { useState } from "react";
-import { Link } from "wouter";
-import { Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "wouter";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [location] = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
@@ -20,104 +30,69 @@ export function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-white/5">
-      <div className="max-w-[1920px] mx-auto px-8 h-[72px] flex items-center justify-between">
-        <Link href="/" className="font-sans text-2xl font-bold tracking-tight text-foreground hover:opacity-80 transition-opacity">
-          Digi<span className="text-blue-500">U</span>Card
+    <header className={`sticky top-0 z-50 transition-all duration-300 ${
+      scrolled ? "bg-white/80 backdrop-blur-lg border-b border-slate-200 py-3" : "bg-transparent py-6"
+    }`}>
+      <div className="max-w-[1400px] mx-auto px-8 flex items-center justify-between">
+        <Link href="/">
+          <a className="font-display text-2xl font-bold tracking-tighter flex items-center gap-2 group">
+            <span className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white group-hover:rotate-12 transition-transform">D</span>
+            <span className="text-slate-900">Digi<span className="text-blue-600">U</span>Card</span>
+          </a>
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        {/* Desktop Nav */}
+        <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
-            link.href.startsWith("#") ? (
-              <a 
-                key={link.name} 
-                href={link.href} 
-                className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {link.name}
-              </a>
-            ) : (
-              <Link 
-                key={link.name} 
-                href={link.href} 
-                className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {link.name}
-              </Link>
-            )
+            <a
+              key={link.name}
+              href={link.href}
+              className="text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors"
+            >
+              {link.name}
+            </a>
           ))}
+          <button className="px-6 py-2.5 bg-slate-900 text-white text-sm font-bold rounded-full hover:bg-slate-800 transition-all flex items-center gap-2 group">
+            Get Started
+            <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </button>
         </nav>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Toggle */}
         <button 
+          className="lg:hidden p-2 text-slate-900 hover:bg-slate-100 rounded-lg transition-colors" 
           onClick={toggleMenu}
-          className="md:hidden p-2 text-foreground hover:text-primary transition-colors"
-          aria-label="Toggle menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile Navigation Overlay */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={closeMenu}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
-            />
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 h-screen w-[300px] bg-background border-l border-border z-50 p-8 flex flex-col gap-8 md:hidden shadow-2xl"
-            >
-              <div className="flex justify-between items-center">
-                <span className="font-display text-xl font-bold">Menu</span>
-                <button onClick={closeMenu} className="p-2 hover:text-primary transition-colors">
-                  <X size={24} />
-                </button>
-              </div>
-              
-              <nav className="flex flex-col gap-6 mt-8">
-                <Link href="/" onClick={closeMenu} className="text-2xl font-medium hover:text-primary transition-colors">
-                  Home
-                </Link>
-                {navLinks.map((link) => (
-                  link.href.startsWith("#") ? (
-                    <a 
-                      key={link.name} 
-                      href={link.href} 
-                      onClick={closeMenu}
-                      className="text-2xl font-medium hover:text-primary transition-colors"
-                    >
-                      {link.name}
-                    </a>
-                  ) : (
-                    <Link 
-                      key={link.name} 
-                      href={link.href} 
-                      onClick={closeMenu}
-                      className="text-2xl font-medium hover:text-primary transition-colors"
-                    >
-                      {link.name}
-                    </Link>
-                  )
-                ))}
-              </nav>
-
-              <div className="mt-auto pt-8 border-t border-border">
-                <p className="text-muted-foreground text-sm">
-                  © 2026 Digi<span className="text-blue-500">U</span>Card
-                </p>
-              </div>
-            </motion.div>
-          </>
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden bg-white border-b border-slate-200 overflow-hidden"
+          >
+            <div className="px-8 py-8 flex flex-col gap-6">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={closeMenu}
+                  className="text-lg font-bold text-slate-900 hover:text-blue-600 transition-colors"
+                >
+                  {link.name}
+                </a>
+              ))}
+              <button className="w-full py-4 bg-slate-900 text-white font-bold rounded-xl flex items-center justify-center gap-2">
+                Get Started
+                <ArrowUpRight size={18} />
+              </button>
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </header>

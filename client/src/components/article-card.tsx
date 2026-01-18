@@ -30,7 +30,7 @@ export function ArticleCard({ article, index }: ArticleCardProps) {
     >
       <CardWrapper>
         <div className="space-y-6">
-          <div className="aspect-[16/10] overflow-hidden rounded-[2.5rem] bg-white/5 border border-white/10 transition-all duration-500 group-hover:border-blue-500/50 group-hover:shadow-[0_0_40px_-10px_rgba(59,130,246,0.3)]">
+          <div className="aspect-[16/10] overflow-hidden rounded-[2.5rem] bg-white border border-slate-200 transition-all duration-500 group-hover:border-blue-500/50 group-hover:shadow-[0_20px_40px_-15px_rgba(59,130,246,0.15)] shadow-sm">
             <img 
               src={article.image} 
               alt={article.title}
@@ -39,12 +39,12 @@ export function ArticleCard({ article, index }: ArticleCardProps) {
           </div>
           <div className="flex justify-between items-start px-2">
             <div>
-              <h3 className="font-display text-2xl md:text-3xl font-bold mb-2 group-hover:text-blue-500 transition-colors">
+              <h3 className="font-display text-2xl md:text-3xl font-bold mb-2 text-slate-900 group-hover:text-blue-600 transition-colors">
                 {article.title}
               </h3>
-              <p className="text-white/40 text-sm font-medium uppercase tracking-widest">{article.publishDate}</p>
+              <p className="text-slate-400 text-sm font-medium uppercase tracking-widest">{article.publishDate}</p>
             </div>
-            <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center transition-all group-hover:bg-blue-500 group-hover:border-blue-500 text-white">
+            <div className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center transition-all group-hover:bg-blue-600 group-hover:border-blue-600 text-slate-400 group-hover:text-white">
               <ArrowUpRight className="w-6 h-6 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </div>
           </div>

@@ -96,21 +96,21 @@ const features = [
 
 export function FeaturesGrid() {
   return (
-    <section id="features" className="px-8 py-24 md:py-32 max-w-[1400px] mx-auto border-t border-white/5">
+    <section id="features" className="px-8 py-24 md:py-32 max-w-[1400px] mx-auto border-t border-slate-200">
       <div className="text-center mb-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium mb-6 backdrop-blur-md"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/5 border border-slate-900/10 text-sm font-medium mb-6 backdrop-blur-md"
         >
-          <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-          <span>Unlimited Possibilities</span>
+          <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
+          <span className="text-slate-600">Unlimited Possibilities</span>
         </motion.div>
-        <h2 className="font-display text-4xl md:text-6xl font-bold mb-6">
+        <h2 className="font-display text-4xl md:text-6xl font-bold mb-6 text-slate-900">
           All Things U Can Do with DigiU
         </h2>
-        <p className="text-white/40 text-lg max-w-[60ch] mx-auto">
+        <p className="text-slate-500 text-lg max-w-[60ch] mx-auto">
           From communication to commerce, DigiUCard powers every aspect of your professional digital life.
         </p>
       </div>
@@ -125,18 +125,18 @@ export function FeaturesGrid() {
             viewport={{ once: true }}
             transition={{ delay: index * 0.05 }}
             whileHover={{ y: -5 }}
-            className="group p-8 rounded-[2rem] bg-white/5 border border-white/10 hover:border-blue-500/50 transition-all duration-300 backdrop-blur-sm flex flex-col h-full"
+            className="group p-8 rounded-[2rem] bg-white border border-slate-200 hover:border-blue-500/50 transition-all duration-300 shadow-sm hover:shadow-lg flex flex-col h-full"
           >
-            <div className={`w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-blue-500 transition-colors duration-300`}>
-              <feature.icon className="w-6 h-6 text-white group-hover:text-white" />
+            <div className={`w-12 h-12 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300 shadow-inner`}>
+              <feature.icon className="w-6 h-6 text-slate-400 group-hover:text-white" />
             </div>
-            <h3 className="font-display text-xl font-bold mb-3 group-hover:text-blue-500 transition-colors">
+            <h3 className="font-display text-xl font-bold mb-3 text-slate-900 group-hover:text-blue-600 transition-colors">
               {feature.title}
             </h3>
-            <p className="text-white/40 text-sm leading-relaxed mb-6 flex-grow">
+            <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
               {feature.description}
             </p>
-            <div className="flex items-center gap-2 text-white/60 group-hover:text-blue-500 transition-colors text-xs font-bold uppercase tracking-widest">
+            <div className="flex items-center gap-2 text-slate-400 group-hover:text-blue-600 transition-colors text-xs font-bold uppercase tracking-widest">
               Explore <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </div>
           </motion.a>

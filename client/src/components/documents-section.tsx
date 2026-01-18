@@ -22,15 +22,15 @@ const documents = [
 
 export function DocumentsSection() {
   return (
-    <section id="documents" className="px-8 py-16 md:py-24 max-w-[1400px] mx-auto border-t border-white/5">
+    <section id="documents" className="px-8 py-16 md:py-24 max-w-[1400px] mx-auto border-t border-slate-200">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
         <div className="max-w-2xl">
-          <div className="flex items-center gap-2 text-blue-500 mb-4 font-semibold tracking-widest uppercase text-xs">
+          <div className="flex items-center gap-2 text-blue-600 mb-4 font-semibold tracking-widest uppercase text-xs">
             <ShieldCheck size={16} />
             <span>Secure Access</span>
           </div>
-          <h2 className="font-display text-4xl md:text-6xl font-bold mb-6">Documents & Contracts</h2>
-          <p className="text-white/60 text-lg">
+          <h2 className="font-display text-4xl md:text-6xl font-bold mb-6 text-slate-900">Documents & Contracts</h2>
+          <p className="text-slate-500 text-lg">
             Direct access to official documentation, resumes, and legal agreements.
           </p>
         </div>
@@ -44,7 +44,7 @@ export function DocumentsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="group relative flex flex-col md:flex-row bg-white/5 border border-white/10 rounded-[2.5rem] overflow-hidden hover:border-blue-500/50 transition-all duration-500"
+            className="group relative flex flex-col md:flex-row bg-white border border-slate-200 rounded-[2.5rem] overflow-hidden hover:border-blue-500/50 transition-all duration-500 shadow-sm hover:shadow-xl"
           >
             <div className="w-full md:w-1/3 aspect-[4/3] md:aspect-auto overflow-hidden">
               <img 
@@ -55,13 +55,13 @@ export function DocumentsSection() {
             </div>
             <div className="flex-1 p-8 flex flex-col justify-center">
               <div className="flex items-center gap-2 mb-4">
-                <FileText size={16} className="text-blue-500" />
-                <span className="text-xs font-bold uppercase tracking-widest text-white/40">{doc.type}</span>
+                <FileText size={16} className="text-blue-600" />
+                <span className="text-xs font-bold uppercase tracking-widest text-slate-400">{doc.type}</span>
               </div>
-              <h3 className="font-display text-2xl font-bold mb-3 group-hover:text-blue-500 transition-colors">
+              <h3 className="font-display text-2xl font-bold mb-3 text-slate-900 group-hover:text-blue-600 transition-colors">
                 {doc.title}
               </h3>
-              <p className="text-white/40 text-sm leading-relaxed mb-8">
+              <p className="text-slate-500 text-sm leading-relaxed mb-8">
                 {doc.description}
               </p>
               <div className="flex items-center gap-4">
@@ -69,7 +69,7 @@ export function DocumentsSection() {
                   href={doc.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-bold rounded-full text-xs hover:bg-blue-500 hover:text-white transition-all shadow-lg shadow-white/5"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white font-bold rounded-full text-xs hover:bg-blue-600 transition-all shadow-lg"
                 >
                   <Download size={14} /> Download
                 </a>
@@ -77,7 +77,7 @@ export function DocumentsSection() {
                   href={doc.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-full border border-white/10 hover:bg-white/10 transition-all text-white/60 hover:text-white"
+                  className="p-3 rounded-full border border-slate-200 hover:bg-slate-50 transition-all text-slate-400 hover:text-blue-600"
                 >
                   <ExternalLink size={16} />
                 </a>

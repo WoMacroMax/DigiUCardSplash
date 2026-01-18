@@ -24,15 +24,15 @@ const specialEvents = [
 
 export function SpecialEvents() {
   return (
-    <section id="special-events" className="px-8 py-16 md:py-24 max-w-[1920px] mx-auto border-t border-white/5 mt-16">
+    <section id="special-events" className="px-8 py-16 md:py-24 max-w-[1400px] mx-auto border-t border-slate-200">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
         <div className="max-w-[60ch]">
-          <div className="flex items-center gap-2 text-primary mb-4 font-semibold tracking-widest uppercase text-xs">
+          <div className="flex items-center gap-2 text-blue-600 mb-4 font-semibold tracking-widest uppercase text-xs">
             <Sparkles size={16} />
             <span>Exclusive Access</span>
           </div>
-          <h2 className="font-display text-4xl md:text-6xl font-bold">Special Events</h2>
-          <p className="text-muted-foreground text-lg mt-4">
+          <h2 className="font-display text-4xl md:text-6xl font-bold text-slate-900">Special Events</h2>
+          <p className="text-slate-500 text-lg mt-4">
             Curated experiences and insights from the WoMacroMax ecosystem.
           </p>
         </div>
@@ -49,7 +49,7 @@ export function SpecialEvents() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="group relative block overflow-hidden rounded-[2.5rem] bg-card/30 border border-white/5 hover:border-primary/40 transition-all duration-500"
+            className="group relative block overflow-hidden rounded-[2.5rem] bg-white border border-slate-200 hover:border-blue-500/50 transition-all duration-500 shadow-sm hover:shadow-xl"
           >
             <div className="flex flex-col md:flex-row h-full">
               <div className="w-full md:w-2/5 aspect-[4/3] md:aspect-auto overflow-hidden">
@@ -60,23 +60,23 @@ export function SpecialEvents() {
                 />
               </div>
               <div className="w-full md:w-3/5 p-8 flex flex-col">
-                <div className="flex items-center gap-4 mb-4 text-xs font-medium text-muted-foreground">
+                <div className="flex items-center gap-4 mb-4 text-xs font-medium text-slate-400">
                   <div className="flex items-center gap-1.5">
-                    <Calendar size={14} className="text-primary" />
+                    <Calendar size={14} className="text-blue-600" />
                     {event.date}
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <MapPin size={14} className="text-secondary" />
+                    <MapPin size={14} className="text-purple-600" />
                     {event.location}
                   </div>
                 </div>
-                <h3 className="font-display text-2xl md:text-3xl font-bold mb-4 group-hover:text-primary transition-colors">
+                <h3 className="font-display text-2xl md:text-3xl font-bold mb-4 text-slate-900 group-hover:text-blue-600 transition-colors">
                   {event.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-8 flex-grow">
+                <p className="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">
                   {event.description}
                 </p>
-                <div className="flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-widest">
+                <div className="flex items-center gap-2 text-blue-600 font-bold text-sm uppercase tracking-widest">
                   View Details <ExternalLink size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </div>
               </div>
