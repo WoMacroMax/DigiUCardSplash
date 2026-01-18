@@ -13,6 +13,7 @@ export function Navbar() {
     { name: "About", href: "/article/about-james" },
     { name: "Splash Pages", href: "#splash" },
     { name: "Links", href: "#links" },
+    { name: "Special Events", href: "#special-events" },
     { name: "Events", href: "#events" },
   ];
 

@@ -6,6 +6,7 @@ import { ArticleCard } from "@/components/article-card";
 import { EventSection } from "@/components/event-section";
 import { CardShowcase } from "@/components/card-showcase";
 import { LinkInBio } from "@/components/link-in-bio";
+import { SpecialEvents } from "@/components/special-events";
 import { articles, events, showcasedCards } from "@/lib/data";
 
 export default function Home() {
@@ -51,6 +52,8 @@ export default function Home() {
         </section>
 
         <LinkInBio />
+
+        <SpecialEvents />
 
         <EventSection events={events} />
       </main>
