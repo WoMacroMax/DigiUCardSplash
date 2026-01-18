@@ -122,7 +122,7 @@ export const showcasedCards: DigiUCardPreview[] = [
     title: "Minimal Identity",
     description: "Clean, essential digital presence focusing strictly on core identity and contact.",
     url: "https://digiucard.info/digiucard?primarychecksum=00001b9fab72&digiu_pay=false&digiu_connect=false",
-    image: img9,
+    image: "https://xrwnptogkhxeyamjcxhd.supabase.co/storage/v1/object/public/attachments/1768768001227-image.png",
     type: "Minimal"
   }
 ];
