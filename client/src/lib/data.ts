@@ -24,6 +24,15 @@ export interface Event {
   image: string;
 }
 
+export interface DigiUCardPreview {
+  id: string;
+  title: string;
+  description: string;
+  url: string;
+  image: string;
+  type: string;
+}
+
 export const articles: Article[] = [
   {
     slug: "about-james",
@@ -48,42 +57,6 @@ export const articles: Article[] = [
     title: "Luxury Streetwear",
     publishDate: "March 12, 2024",
     image: img4
-  },
-  {
-    slug: "lavender-fields",
-    title: "The Hat Edit",
-    publishDate: "March 8, 2024",
-    image: img5
-  },
-  {
-    slug: "coastal-classic",
-    title: "Ocean Breeze",
-    publishDate: "March 5, 2024",
-    image: img6
-  },
-  {
-    slug: "stories-unbound",
-    title: "Stories Unbound",
-    publishDate: "March 3, 2024",
-    image: img7
-  },
-  {
-    slug: "circular-horizons",
-    title: "Circular Horizons",
-    publishDate: "March 1, 2024",
-    image: img8
-  },
-  {
-    slug: "retro-revival",
-    title: "Retro Revival",
-    publishDate: "February 28, 2024",
-    image: img9
-  },
-  {
-    slug: "golden-spheres",
-    title: "Golden Spheres",
-    publishDate: "February 25, 2024",
-    image: img10
   }
 ];
 
@@ -108,5 +81,48 @@ export const events: Event[] = [
     date: "September 10, 2026",
     location: "Milan, Italy",
     image: img3
+  }
+];
+
+export const showcasedCards: DigiUCardPreview[] = [
+  {
+    id: "1",
+    title: "Standard Connect",
+    description: "Full digital identity with active connection modules. The ultimate professional networking tool.",
+    url: "https://digiucard.info/digiucard?primarychecksum=0000418de2aa&digiu_pay=false&digiu_connect=true",
+    image: img5,
+    type: "Connect"
+  },
+  {
+    id: "2",
+    title: "Portfolio Edition",
+    description: "Streamlined portfolio layout focusing on work and personal brand visualization.",
+    url: "https://digiucard.info/digiucard?primarychecksum=00007f5b1e73",
+    image: img6,
+    type: "Portfolio"
+  },
+  {
+    id: "3",
+    title: "Creator Pro",
+    description: "Bespoke creator identity with modular content hubs for cross-platform presence.",
+    url: "https://digiucard.info/digiucard?primarychecksum=0000210c161d",
+    image: img7,
+    type: "Creator"
+  },
+  {
+    id: "4",
+    title: "Business Elite",
+    description: "Corporate-grade digital business card with seamless CRM integration paths.",
+    url: "https://digiucard.com/CPetDGU",
+    image: img8,
+    type: "Business"
+  },
+  {
+    id: "5",
+    title: "Minimal Identity",
+    description: "Clean, essential digital presence focusing strictly on core identity and contact.",
+    url: "https://digiucard.info/digiucard?primarychecksum=00001b9fab72&digiu_pay=false&digiu_connect=false",
+    image: img9,
+    type: "Minimal"
   }
 ];
