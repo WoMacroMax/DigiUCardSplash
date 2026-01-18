@@ -8,6 +8,7 @@ import { CardShowcase } from "@/components/card-showcase";
 import { LinkInBio } from "@/components/link-in-bio";
 import { SpecialEvents } from "@/components/special-events";
 import { DigitalAds } from "@/components/digital-ads";
+import { DocumentsSection } from "@/components/documents-section";
 import { articles, showcasedCards } from "@/lib/data";
 
 export default function Home() {
@@ -88,6 +89,8 @@ export default function Home() {
         <SpecialEvents />
 
         <DigitalAds />
+
+        <DocumentsSection />
       </main>
 
       <Footer />
