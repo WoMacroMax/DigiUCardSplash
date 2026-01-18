@@ -39,7 +39,7 @@ export default function Home() {
 
         <section className="px-8 py-8 md:py-16 max-w-[1920px] mx-auto border-t border-white/5 mt-16">
           <div className="flex items-center justify-between mb-12">
-            <h2 className="font-display text-3xl md:text-5xl font-bold">Latest Stories</h2>
+            <h2 className="font-display text-3xl md:text-5xl font-bold">Splash Pages</h2>
             <div className="h-px flex-grow mx-8 bg-gradient-to-r from-white/10 to-transparent hidden md:block" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-[70px] lg:gap-24">
