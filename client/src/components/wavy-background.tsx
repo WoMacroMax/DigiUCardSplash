@@ -1,11 +1,29 @@
 import { motion } from "framer-motion";
 
+const backgroundImages = [
+  "https://xrwnptogkhxeyamjcxhd.supabase.co/storage/v1/object/public/attachments/1768776731602-DigiUCard_Splash_Image_01.jpg",
+  "https://xrwnptogkhxeyamjcxhd.supabase.co/storage/v1/object/public/attachments/1768776730715-DigiUCard_Splash_Image_02.jpg",
+  "https://xrwnptogkhxeyamjcxhd.supabase.co/storage/v1/object/public/attachments/1768776729702-DigiUCard_Splash_Image_03.jpg",
+  "https://xrwnptogkhxeyamjcxhd.supabase.co/storage/v1/object/public/attachments/1768776733118-DigiUCard-favicon.jpeg"
+];
+
 export function WavyBackground() {
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {/* Light background base */}
+      {/* Dynamic Background Image Layers */}
       <div className="absolute inset-0 bg-[#f8fafc]" />
       
+      {backgroundImages.map((img, index) => (
+        <motion.div
+          key={img}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.15 }}
+          transition={{ duration: 2, delay: index * 0.5 }}
+          className="absolute inset-0 bg-cover bg-center mix-blend-multiply grayscale opacity-10"
+          style={{ backgroundImage: `url(${img})` }}
+        />
+      ))}
+
       {/* Animated glow blobs with lighter, softer colors */}
       <motion.div 
         animate={{ 
@@ -28,8 +46,8 @@ export function WavyBackground() {
         className="absolute -bottom-[20%] -right-[10%] w-[70%] h-[70%] rounded-full bg-purple-200/30 blur-[150px]"
       />
 
-      {/* Grid pattern overlay - darker for contrast on light bg */}
-      <div className="absolute inset-0 opacity-[0.4]" 
+      {/* Grid pattern overlay */}
+      <div className="absolute inset-0 opacity-[0.2]" 
         style={{ 
           backgroundImage: `linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px)`,
           backgroundSize: '40px 40px'
