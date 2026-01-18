@@ -20,7 +20,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-white/5">
       <div className="max-w-[1920px] mx-auto px-8 h-[72px] flex items-center justify-between">
         <Link href="/" className="font-sans text-2xl font-bold tracking-tight text-foreground hover:opacity-80 transition-opacity">
-          SuccessStory<span className="text-primary">Vybe</span>
+          Digi<span className="text-blue-500">U</span>Card
         </Link>
 
         {/* Desktop Navigation */}
@@ -110,7 +110,7 @@ export function Navbar() {
 
               <div className="mt-auto pt-8 border-t border-border">
                 <p className="text-muted-foreground text-sm">
-                  © 2026 SuccessStory Vybe
+                  © 2026 Digi<span className="text-blue-500">U</span>Card
                 </p>
               </div>
             </motion.div>

@@ -21,8 +21,7 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="font-display font-semibold text-[clamp(2.5rem,8vw+0.625rem,12.5rem)] md:text-[clamp(5rem,10vw+1.25rem,15rem)] lg:text-[clamp(6.25rem,12vw+1.875rem,18.75rem)] leading-[0.9] tracking-tighter mb-12"
           >
-            <span className="block">SuccessStory</span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent animate-gradient-x">Vybe</span>
+            <span className="block">Digi<span className="text-blue-500">U</span>Card</span>
           </motion.h1>
           
           <motion.p 
@@ -31,7 +30,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="text-muted-foreground text-lg md:text-2xl leading-relaxed max-w-[60ch] mx-auto"
           >
-            SuccessStory Vybe is a modern travel and lifestyle newsroom that showcases inspiring stories, destination features, and travel industry updates.
+            Digi<span className="text-blue-500">U</span>Card is a modern travel and lifestyle newsroom that showcases inspiring stories, destination features, and travel industry updates.
           </motion.p>
         </section>
 
