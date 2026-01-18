@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { DigiUCardPreview } from "@/lib/data";
-import { ExternalLink, CreditCard, Share2 } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 interface CardShowcaseProps {
   cards: DigiUCardPreview[];
@@ -8,59 +8,50 @@ interface CardShowcaseProps {
 
 export function CardShowcase({ cards }: CardShowcaseProps) {
   return (
-    <div className="py-8 px-4 md:px-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-        {cards.map((card, index) => (
-          <motion.div
-            key={card.id}
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: index * 0.1 }}
-            className="group relative flex flex-col h-full bg-card/40 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden hover:border-primary/50 transition-all duration-500 shadow-xl"
-          >
-            <div className="relative aspect-[9/16] overflow-hidden">
-              <img 
-                src={card.image} 
-                alt={card.title}
-                className="w-full h-full object-contain bg-background/50 transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
-              
-              <div className="absolute top-4 right-4 bg-primary/20 backdrop-blur-md px-3 py-1 rounded-full border border-primary/30">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-primary-foreground">{card.type}</span>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {cards.map((card, index) => (
+        <motion.div
+          key={card.id}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="group relative bg-white/5 border border-white/10 rounded-[2.5rem] p-6 hover:border-blue-500/50 transition-all duration-500 hover:shadow-[0_0_50px_-12px_rgba(59,130,246,0.25)] flex flex-col h-full"
+        >
+          <div className="aspect-[4/3] overflow-hidden rounded-[1.5rem] mb-8 bg-white/5">
+            <img 
+              src={card.image} 
+              alt={card.title}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+          </div>
+          <div className="space-y-4 flex-grow">
+            <div className="flex items-center justify-between">
+              <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-[10px] font-bold uppercase tracking-widest border border-blue-500/20">
+                {card.type}
+              </span>
+            </div>
+            <h3 className="font-display text-2xl font-bold group-hover:text-blue-500 transition-colors">
+              {card.title}
+            </h3>
+            <p className="text-white/40 text-sm leading-relaxed">
+              {card.description}
+            </p>
+          </div>
+          <div className="pt-6">
+            <a 
+              href={card.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-white font-bold text-sm group/btn"
+            >
+              Learn More 
+              <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center transition-all group-hover/btn:bg-white group-hover/btn:text-black">
+                <ArrowUpRight className="w-4 h-4" />
               </div>
-            </div>
-
-            <div className="p-6 flex flex-col flex-grow">
-              <h3 className="font-display text-xl font-bold mb-2 group-hover:text-primary transition-colors line-clamp-1">
-                {card.title}
-              </h3>
-              <p className="text-muted-foreground text-xs leading-relaxed mb-6 line-clamp-3 flex-grow">
-                {card.description}
-              </p>
-              
-              <div className="flex items-center gap-3">
-                <a 
-                  href={card.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-grow flex items-center justify-center gap-2 py-2.5 bg-primary/10 hover:bg-primary text-primary-foreground rounded-xl transition-all font-semibold text-xs border border-primary/20"
-                >
-                  Preview <ExternalLink size={12} />
-                </a>
-                <button className="p-2.5 bg-white/5 hover:bg-white/10 rounded-xl transition-colors border border-white/10">
-                  <Share2 size={14} className="text-muted-foreground" />
-                </button>
-              </div>
-            </div>
-
-            {/* Aesthetic card chip indicator */}
-            <div className="absolute top-4 left-6 flex gap-1 opacity-40">
-              <div className="w-8 h-5 rounded-sm bg-accent/20 border border-accent/30" />
-            </div>
-          </motion.div>
-        ))}
-      </div>
+            </a>
+          </div>
+        </motion.div>
+      ))}
     </div>
   );
 }

@@ -2,38 +2,46 @@ import { motion } from "framer-motion";
 
 export function WavyBackground() {
   return (
-    <div className="fixed inset-0 pointer-events-none opacity-[0.06] z-0">
-      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="wave-gradient-1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="hsl(27, 100%, 55%)"></stop>
-            <stop offset="50%" stopColor="hsl(14, 100%, 57%)"></stop>
-            <stop offset="100%" stopColor="hsl(217, 100%, 65%)"></stop>
-          </linearGradient>
-          <linearGradient id="wave-gradient-2" x1="100%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="hsl(27, 100%, 55%)"></stop>
-            <stop offset="50%" stopColor="hsl(290, 90%, 60%)"></stop>
-            <stop offset="100%" stopColor="hsl(217, 100%, 65%)"></stop>
-          </linearGradient>
-        </defs>
-        <motion.path 
-          d="M0,100 Q250,50 500,100 T1000,100 T1500,100 T2000,100 L2000,300 L0,300 Z" 
-          fill="url(#wave-gradient-1)" 
-          opacity="0.3"
-          animate={{ d: ["M0,100 Q250,50 500,100 T1000,100 T1500,100 T2000,100 L2000,300 L0,300 Z", "M0,120 Q250,70 500,120 T1000,120 T1500,120 T2000,120 L2000,300 L0,300 Z", "M0,100 Q250,50 500,100 T1000,100 T1500,100 T2000,100 L2000,300 L0,300 Z"] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.path 
-          d="M0,200 Q300,150 600,200 T1200,200 T1800,200 L1800,400 L0,400 Z" 
-          fill="url(#wave-gradient-2)" 
-          opacity="0.2"
-          animate={{ d: ["M0,200 Q300,150 600,200 T1200,200 T1800,200 L1800,400 L0,400 Z", "M0,220 Q300,170 600,220 T1200,220 T1800,220 L1800,400 L0,400 Z", "M0,200 Q300,150 600,200 T1200,200 T1800,200 L1800,400 L0,400 Z"] }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        />
-        <path d="M0,350 Q400,300 800,350 T1600,350 L1600,600 L0,600 Z" fill="url(#wave-gradient-1)" opacity="0.15"></path>
-        <path d="M0,500 Q350,450 700,500 T1400,500 T2100,500 L2100,800 L0,800 Z" fill="url(#wave-gradient-2)" opacity="0.25"></path>
-        <path d="M0,650 Q450,600 900,650 T1800,650 L1800,1000 L0,1000 Z" fill="url(#wave-gradient-1)" opacity="0.2"></path>
-      </svg>
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+      {/* Background radial gradient for depth */}
+      <div className="absolute inset-0 bg-[#050505]" />
+      
+      {/* Animated glow blobs */}
+      <motion.div 
+        animate={{ 
+          scale: [1, 1.2, 1],
+          opacity: [0.15, 0.25, 0.15],
+          x: [0, 100, 0],
+          y: [0, -50, 0]
+        }}
+        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-blue-600/20 blur-[120px]"
+      />
+      <motion.div 
+        animate={{ 
+          scale: [1, 1.3, 1],
+          opacity: [0.1, 0.2, 0.1],
+          x: [0, -150, 0],
+          y: [0, 100, 0]
+        }}
+        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        className="absolute -bottom-[20%] -right-[10%] w-[70%] h-[70%] rounded-full bg-purple-600/10 blur-[150px]"
+      />
+
+      {/* Grid pattern overlay */}
+      <div className="absolute inset-0 opacity-[0.15]" 
+        style={{ 
+          backgroundImage: `linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)`,
+          backgroundSize: '40px 40px'
+        }} 
+      />
+      
+      {/* Soft noise texture */}
+      <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
+        }}
+      />
     </div>
   );
 }
