@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { Article } from "@/lib/data";
+import { type Article } from "@shared/schema";
 import { ArrowUpRight } from "lucide-react";
 
 interface ArticleCardProps {

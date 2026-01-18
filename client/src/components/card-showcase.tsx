@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import { DigiUCardPreview } from "@/lib/data";
+import { type Card } from "@shared/schema";
 import { ArrowUpRight } from "lucide-react";
 
 interface CardShowcaseProps {
-  cards: DigiUCardPreview[];
+  cards: Card[];
 }
 
 export function CardShowcase({ cards }: CardShowcaseProps) {

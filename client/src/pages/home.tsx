@@ -1,18 +1,26 @@
 import { motion } from "framer-motion";
+import { useQuery } from "@tanstack/react-query";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { WavyBackground } from "@/components/wavy-background";
 import { ArticleCard } from "@/components/article-card";
-import { EventSection } from "@/components/event-section";
 import { CardShowcase } from "@/components/card-showcase";
 import { LinkInBio } from "@/components/link-in-bio";
 import { SpecialEvents } from "@/components/special-events";
 import { DigitalAds } from "@/components/digital-ads";
 import { DocumentsSection } from "@/components/documents-section";
 import { FeaturesGrid } from "@/components/features-grid";
-import { articles, showcasedCards } from "@/lib/data";
+import { type Article, type Card } from "@shared/schema";
 
 export default function Home() {
+  const { data: articles, isLoading: loadingArticles } = useQuery<Article[]>({
+    queryKey: ["/api/articles"],
+  });
+
+  const { data: cards, isLoading: loadingCards } = useQuery<Card[]>({
+    queryKey: ["/api/cards"],
+  });
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans relative overflow-x-hidden">
       <WavyBackground />
@@ -67,7 +75,13 @@ export default function Home() {
           
           <div className="relative mt-20">
             <div className="absolute inset-0 bg-blue-400/10 blur-[120px] rounded-full -z-10 opacity-50" />
-            <CardShowcase cards={showcasedCards} />
+            {loadingCards ? (
+              <div className="h-64 flex items-center justify-center">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+              </div>
+            ) : (
+              <CardShowcase cards={cards || []} />
+            )}
           </div>
         </section>
 
@@ -78,11 +92,17 @@ export default function Home() {
               <p className="text-slate-500 text-lg">Beautifully crafted entry points for your digital presence.</p>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
-            {articles.map((article, index) => (
-              <ArticleCard key={article.slug} article={article} index={index} />
-            ))}
-          </div>
+          {loadingArticles ? (
+            <div className="h-64 flex items-center justify-center">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
+              {(articles || []).map((article, index) => (
+                <ArticleCard key={article.slug} article={article} index={index} />
+              ))}
+            </div>
+          )}
         </section>
 
         <LinkInBio />
