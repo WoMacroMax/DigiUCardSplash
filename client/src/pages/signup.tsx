@@ -75,10 +75,10 @@ export default function SignUp() {
             viewport={{ once: true }}
             className="flex"
           >
-            <Card className="relative flex flex-col w-full border-amber-200 shadow-lg shadow-amber-500/5 hover:border-amber-400 transition-all rounded-[2rem]">
-              <div className="absolute top-0 left-0 w-full h-2 bg-amber-400 rounded-t-[2rem]" />
+            <Card className="relative flex flex-col w-full border-amber-200 bg-white shadow-lg shadow-amber-500/5 hover:border-amber-400 transition-all rounded-[2rem] overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-2 bg-amber-400" />
               <CardHeader className="pt-10 pb-6">
-                <div className="w-12 h-12 bg-amber-100 rounded-2xl flex items-center justify-center mb-4 text-amber-600">
+                <div className="w-12 h-12 bg-amber-50 rounded-2xl flex items-center justify-center mb-4 text-amber-600 border border-amber-100">
                   <Shield className="w-6 h-6" />
                 </div>
                 <CardTitle className="text-2xl font-display font-bold text-slate-900">Free Trial</CardTitle>
@@ -91,12 +91,12 @@ export default function SignUp() {
                 <p className="text-slate-600 leading-relaxed">
                   Setup is completely FREE. Pay only 20% of your SRP per qualified lead we deliver. Zero risk, pure performance.
                 </p>
-                <button className="text-blue-600 font-semibold hover:underline flex items-center">
-                  View More <ArrowRight className="w-4 h-4 ml-1" />
+                <button className="text-blue-600 font-semibold hover:underline flex items-center group/more">
+                  View More <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover/more:translate-x-1" />
                 </button>
               </CardContent>
               <CardFooter className="pb-10">
-                <Button className="w-full bg-slate-50 text-slate-900 hover:bg-slate-100 border border-slate-200 h-14 rounded-2xl text-lg font-semibold shadow-none">
+                <Button className="w-full bg-white text-slate-900 hover:bg-slate-50 border border-slate-200 h-14 rounded-2xl text-lg font-semibold shadow-sm transition-all hover:border-slate-300">
                   Sign Up Now
                 </Button>
               </CardFooter>
@@ -111,9 +111,9 @@ export default function SignUp() {
             transition={{ delay: 0.1 }}
             className="flex"
           >
-            <Card className="flex flex-col w-full border-slate-200 shadow-sm hover:border-blue-200 transition-all rounded-[2rem]">
+            <Card className="relative flex flex-col w-full border-slate-200 bg-white shadow-sm hover:border-blue-200 transition-all rounded-[2rem] overflow-hidden">
               <CardHeader className="pt-10 pb-6">
-                <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center mb-4 text-blue-600">
+                <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center mb-4 text-blue-600 border border-blue-100">
                   <Zap className="w-6 h-6" />
                 </div>
                 <CardTitle className="text-2xl font-display font-bold text-slate-900">Setup</CardTitle>
@@ -125,12 +125,12 @@ export default function SignUp() {
                 <p className="text-slate-600 leading-relaxed">
                   Setup of initial digital identity, lead capture modules, SEO, and activity calendar to boost your presence.
                 </p>
-                <button className="text-blue-600 font-semibold hover:underline flex items-center">
-                  View More <ArrowRight className="w-4 h-4 ml-1" />
+                <button className="text-blue-600 font-semibold hover:underline flex items-center group/more">
+                  View More <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover/more:translate-x-1" />
                 </button>
               </CardContent>
               <CardFooter className="pb-10">
-                <Button className="w-full bg-slate-50 text-slate-900 hover:bg-slate-100 border border-slate-200 h-14 rounded-2xl text-lg font-semibold shadow-none">
+                <Button className="w-full bg-white text-slate-900 hover:bg-slate-50 border border-slate-200 h-14 rounded-2xl text-lg font-semibold shadow-sm transition-all hover:border-slate-300">
                   Add to Cart
                 </Button>
               </CardFooter>
@@ -145,10 +145,10 @@ export default function SignUp() {
             transition={{ delay: 0.2 }}
             className="flex"
           >
-            <Card className="relative flex flex-col w-full border-blue-500 shadow-xl shadow-blue-500/10 rounded-[2rem]">
-              <div className="absolute top-0 left-0 w-full h-2 bg-blue-500 rounded-t-[2rem]" />
+            <Card className="relative flex flex-col w-full border-blue-500 bg-white shadow-xl shadow-blue-500/10 rounded-[2rem] overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-2 bg-blue-500" />
               <CardHeader className="pt-10 pb-6">
-                <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center mb-4 text-blue-600">
+                <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center mb-4 text-blue-600 border border-blue-100">
                   <CreditCard className="w-6 h-6" />
                 </div>
                 <CardTitle className="text-2xl font-display font-bold text-slate-900">Add Credits</CardTitle>
@@ -161,12 +161,12 @@ export default function SignUp() {
                 <p className="text-slate-600 leading-relaxed">
                   Credits are used for additional campaigns and response volume (prospect calls, inquiries, emails).
                 </p>
-                <button className="text-blue-600 font-semibold hover:underline flex items-center">
-                  View More <ArrowRight className="w-4 h-4 ml-1" />
+                <button className="text-blue-600 font-semibold hover:underline flex items-center group/more">
+                  View More <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover/more:translate-x-1" />
                 </button>
               </CardContent>
               <CardFooter className="pb-10">
-                <Button className="w-full bg-blue-600 text-white hover:bg-blue-700 h-14 rounded-2xl text-lg font-semibold shadow-lg shadow-blue-600/20">
+                <Button className="w-full bg-blue-600 text-white hover:bg-blue-700 h-14 rounded-2xl text-lg font-semibold shadow-lg shadow-blue-600/20 transition-all">
                   Add to Cart
                 </Button>
               </CardFooter>
