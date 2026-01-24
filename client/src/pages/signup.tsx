@@ -1,10 +1,24 @@
 import { motion } from "framer-motion";
-import { Check, ArrowRight, Zap, Shield, CreditCard } from "lucide-react";
+import { ArrowRight, Zap, Shield, CreditCard, ShoppingCart, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
+import { useCart } from "@/lib/cart-context";
+import { useState } from "react";
 
 export default function SignUp() {
+  const { addItem, totalItems } = useCart();
+  const [, setLocation] = useLocation();
+  const [addedItems, setAddedItems] = useState<Record<string, boolean>>({});
+
+  const handleAddToCart = (id: string, name: string, price: number, priceLabel: string) => {
+    addItem({ id, name, price, priceLabel });
+    setAddedItems((prev) => ({ ...prev, [id]: true }));
+    setTimeout(() => {
+      setAddedItems((prev) => ({ ...prev, [id]: false }));
+    }, 1500);
+  };
+
   const pricingFeatures = [
     { name: "Cost", setup: "$150 one-time", credits: "$150 per credit" },
     { name: "What You Get", setup: "Setup of initial card, digital branding, basic SEO", credits: "Additional cards & multi-profile management" },
@@ -14,6 +28,23 @@ export default function SignUp() {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans selection:bg-blue-100 selection:text-blue-900">
+      {/* Cart indicator */}
+      {totalItems > 0 && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="fixed top-6 right-6 z-50"
+        >
+          <Link href="/cart">
+            <Button className="bg-blue-600 text-white hover:bg-blue-700 rounded-full h-14 px-6 shadow-lg shadow-blue-600/20 flex items-center gap-3" data-testid="cart-button">
+              <ShoppingCart className="w-5 h-5" />
+              <span className="font-semibold">{totalItems} item{totalItems > 1 ? "s" : ""}</span>
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </Link>
+        </motion.div>
+      )}
+
       <div className="max-w-6xl mx-auto px-4 py-20">
         <div className="text-center mb-16">
           <motion.h1 
@@ -96,7 +127,10 @@ export default function SignUp() {
                 </button>
               </CardContent>
               <CardFooter className="pb-10">
-                <Button className="w-full bg-white text-slate-900 hover:bg-slate-50 border border-slate-200 h-14 rounded-2xl text-lg font-semibold shadow-sm transition-all hover:border-slate-300">
+                <Button 
+                  className="w-full bg-white text-slate-900 hover:bg-slate-50 border border-slate-200 h-14 rounded-2xl text-lg font-semibold shadow-sm transition-all hover:border-slate-300"
+                  data-testid="signup-free-trial"
+                >
                   Sign Up Now
                 </Button>
               </CardFooter>
@@ -130,8 +164,22 @@ export default function SignUp() {
                 </button>
               </CardContent>
               <CardFooter className="pb-10">
-                <Button className="w-full bg-white text-slate-900 hover:bg-slate-50 border border-slate-200 h-14 rounded-2xl text-lg font-semibold shadow-sm transition-all hover:border-slate-300">
-                  Add to Cart
+                <Button 
+                  onClick={() => handleAddToCart("setup", "Setup Package", 150, "$150 one-time")}
+                  className={`w-full h-14 rounded-2xl text-lg font-semibold shadow-sm transition-all ${
+                    addedItems["setup"] 
+                      ? "bg-emerald-500 text-white hover:bg-emerald-600 border-emerald-500" 
+                      : "bg-white text-slate-900 hover:bg-slate-50 border border-slate-200 hover:border-slate-300"
+                  }`}
+                  data-testid="add-setup-to-cart"
+                >
+                  {addedItems["setup"] ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <Check className="w-5 h-5" /> Added!
+                    </span>
+                  ) : (
+                    "Add to Cart"
+                  )}
                 </Button>
               </CardFooter>
             </Card>
@@ -166,8 +214,22 @@ export default function SignUp() {
                 </button>
               </CardContent>
               <CardFooter className="pb-10">
-                <Button className="w-full bg-blue-600 text-white hover:bg-blue-700 h-14 rounded-2xl text-lg font-semibold shadow-lg shadow-blue-600/20 transition-all">
-                  Add to Cart
+                <Button 
+                  onClick={() => handleAddToCart("credits", "Credits Package", 150, "$150 / credit")}
+                  className={`w-full h-14 rounded-2xl text-lg font-semibold shadow-lg transition-all ${
+                    addedItems["credits"]
+                      ? "bg-emerald-500 text-white hover:bg-emerald-600 shadow-emerald-500/20"
+                      : "bg-blue-600 text-white hover:bg-blue-700 shadow-blue-600/20"
+                  }`}
+                  data-testid="add-credits-to-cart"
+                >
+                  {addedItems["credits"] ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <Check className="w-5 h-5" /> Added!
+                    </span>
+                  ) : (
+                    "Add to Cart"
+                  )}
                 </Button>
               </CardFooter>
             </Card>
