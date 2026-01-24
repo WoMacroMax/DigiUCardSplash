@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "wouter";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { WavyBackground } from "@/components/wavy-background";
@@ -64,9 +65,11 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="mt-12 flex flex-wrap justify-center gap-4"
             >
-              <button className="px-8 py-4 bg-slate-900 text-white font-bold rounded-full hover:bg-slate-800 transition-all transform hover:scale-105 shadow-xl shadow-slate-900/10">
-                Get Started for Free
-              </button>
+              <Link href="/signup">
+                <button className="px-8 py-4 bg-slate-900 text-white font-bold rounded-full hover:bg-slate-800 transition-all transform hover:scale-105 shadow-xl shadow-slate-900/10">
+                  Get Started for Free
+                </button>
+              </Link>
               <button className="px-8 py-4 bg-white border border-slate-200 text-slate-900 font-bold rounded-full hover:bg-slate-50 transition-all shadow-sm">
                 View Documentation
               </button>
