@@ -60,6 +60,12 @@ app.use((req, res, next) => {
 });
 
 (async () => {
+  try {
+    const { seed } = await import("./seed");
+    await seed();
+  } catch (e) {
+    log("Seed failed or skipped: " + e);
+  }
   await registerRoutes(httpServer, app);
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {

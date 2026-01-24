@@ -30,7 +30,7 @@ export function ArticleCard({ article, index }: ArticleCardProps) {
     >
       <CardWrapper>
         <div className="space-y-6">
-          <div className="aspect-[16/10] overflow-hidden rounded-[2.5rem] bg-white border border-slate-200 transition-all duration-500 group-hover:border-blue-500/50 group-hover:shadow-[0_20px_40px_-15px_rgba(59,130,246,0.15)] shadow-sm">
+          <div className="aspect-[16/10] overflow-hidden rounded-[2.5rem] bg-white border border-slate-200 transition-all duration-500 group-hover:border-blue-500/50 group-hover:shadow-[0_20px_40px_-15px_rgba(59,130,246,0.15)] shadow-sm cursor-pointer">
             <img 
               src={article.image} 
               alt={article.title}
