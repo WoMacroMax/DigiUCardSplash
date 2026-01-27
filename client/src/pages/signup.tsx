@@ -1,15 +1,28 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Zap, Shield, CreditCard, ShoppingCart, Check } from "lucide-react";
+import { ArrowRight, ArrowLeft, Zap, Shield, CreditCard, ShoppingCart, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link, useLocation } from "wouter";
 import { useCart } from "@/lib/cart-context";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function SignUp() {
   const { addItem, totalItems } = useCart();
   const [, setLocation] = useLocation();
   const [addedItems, setAddedItems] = useState<Record<string, boolean>>({});
+  const [showBackButton, setShowBackButton] = useState(false);
+
+  useEffect(() => {
+    // Check if page was accessed internally (has referrer from same origin)
+    const referrer = document.referrer;
+    const currentOrigin = window.location.origin;
+    const hasInternalReferrer = referrer && referrer.startsWith(currentOrigin);
+    
+    // Also check if there's browser history (user navigated here)
+    const hasHistory = window.history.length > 1;
+    
+    setShowBackButton(hasInternalReferrer || hasHistory);
+  }, []);
 
   const handleAddToCart = (id: string, name: string, price: number, priceLabel: string) => {
     addItem({ id, name, price, priceLabel });
@@ -28,6 +41,24 @@ export default function SignUp() {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans selection:bg-blue-100 selection:text-blue-900">
+      {/* Back button - top left (only visible when accessed internally) */}
+      {showBackButton && (
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="fixed top-6 left-6 z-50"
+        >
+          <Link href="/">
+            <Button 
+              className="bg-black text-white hover:bg-slate-800 rounded-full h-12 px-4 shadow-lg flex items-center gap-2 border-0"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span className="font-medium">Back</span>
+            </Button>
+          </Link>
+        </motion.div>
+      )}
+
       {/* Cart indicator */}
       {totalItems > 0 && (
         <motion.div

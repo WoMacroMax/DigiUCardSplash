@@ -29,6 +29,18 @@ export default function Home() {
       <Navbar />
 
       <main className="relative z-10">
+        {/* Hero Banner */}
+        <section className="w-full">
+          <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
+            <img
+              src="https://xrwnptogkhxeyamjcxhd.supabase.co/storage/v1/object/public/attachments/1769545436803-digiucard_banner.gif"
+              alt="DigiUCard Hero Banner"
+              className="w-full h-full object-cover object-center"
+              loading="eager"
+            />
+          </div>
+        </section>
+
         <section className="px-8 pt-24 pb-12 md:pt-40 md:pb-24 max-w-[1400px] mx-auto">
           <div className="flex flex-col items-center text-center mb-20">
             <motion.div
