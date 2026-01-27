@@ -10,16 +10,31 @@ export interface IStorage {
 
 export class DatabaseStorage implements IStorage {
   async getArticles(): Promise<Article[]> {
-    return await db.select().from(articles);
+    try {
+      return await db.select().from(articles);
+    } catch (error) {
+      console.error("Database error in getArticles:", error);
+      return [];
+    }
   }
 
   async getArticleBySlug(slug: string): Promise<Article | undefined> {
-    const [article] = await db.select().from(articles).where(eq(articles.slug, slug));
-    return article;
+    try {
+      const [article] = await db.select().from(articles).where(eq(articles.slug, slug));
+      return article;
+    } catch (error) {
+      console.error("Database error in getArticleBySlug:", error);
+      return undefined;
+    }
   }
 
   async getShowcasedCards(): Promise<Card[]> {
-    return await db.select().from(showcasedCards);
+    try {
+      return await db.select().from(showcasedCards);
+    } catch (error) {
+      console.error("Database error in getShowcasedCards:", error);
+      return [];
+    }
   }
 }
 

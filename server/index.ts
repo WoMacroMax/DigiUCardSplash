@@ -64,7 +64,7 @@ app.use((req, res, next) => {
     const { seed } = await import("./seed");
     await seed();
   } catch (e) {
-    log("Seed failed or skipped: " + e);
+    log("Seed failed or skipped: " + (e instanceof Error ? e.message : String(e)));
   }
   await registerRoutes(httpServer, app);
 
