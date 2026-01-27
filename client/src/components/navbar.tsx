@@ -32,7 +32,7 @@ export function Navbar() {
   return (
     <>
       {/* Animated GIF Banner */}
-      <div className="w-full bg-blue-600">
+      <div className="w-full bg-blue-600 relative z-50">
         <a 
           href="https://digiucard.com" 
           target="_blank" 
@@ -43,7 +43,7 @@ export function Navbar() {
             src="https://xrwnptogkhxeyamjcxhd.supabase.co/storage/v1/object/public/attachments/1769545436803-digiucard_banner.gif"
             alt="DigiUCard Banner"
             className="w-full h-16 md:h-20 object-cover"
-            loading="eager"
+            style={{ display: 'block' }}
           />
         </a>
       </div>

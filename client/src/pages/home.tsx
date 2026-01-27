@@ -24,9 +24,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans relative overflow-x-hidden">
-      <WavyBackground />
-      
       <Navbar />
+      
+      <WavyBackground />
 
       <main className="relative z-10">
         {/* Hero Banner */}
