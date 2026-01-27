@@ -48,6 +48,49 @@ The `shared/` directory contains code used by both frontend and backend:
 - Production: Vite builds frontend to `dist/public`, esbuild bundles server to `dist/index.cjs`
 - Server dependencies are selectively bundled to optimize cold start times
 
+## Public API Endpoints
+
+The DigiUCard platform exposes a public REST API for accessing articles and showcased cards.
+
+### API Documentation
+- **GET /api** - Returns full API documentation with all available endpoints
+
+### Articles Endpoints
+- **GET /api/articles** - List all articles/splash pages
+- **GET /api/articles/:slug** - Get article by slug (e.g., `/api/articles/rod-page`)
+- **GET /api/articles/id/:id** - Get article by ID (e.g., `/api/articles/id/1`)
+
+### Cards Endpoints  
+- **GET /api/cards** - List all showcased digital cards
+- **GET /api/cards/:id** - Get card by ID (e.g., `/api/cards/1`)
+- **GET /api/cards/type/:type** - Get cards by type (e.g., `/api/cards/type/Connect`)
+
+### Response Formats
+
+**Article Object:**
+```json
+{
+  "id": 1,
+  "slug": "rod-page",
+  "title": "Rod Page",
+  "publishDate": "January 2026",
+  "image": "https://...",
+  "url": "https://digiucard.com/RodPage"
+}
+```
+
+**Card Object:**
+```json
+{
+  "id": 1,
+  "title": "Standard Connect",
+  "description": "Full digital identity with active connection modules.",
+  "url": "https://digiucard.info/...",
+  "image": "https://...",
+  "type": "Connect"
+}
+```
+
 ## External Dependencies
 
 ### Database
