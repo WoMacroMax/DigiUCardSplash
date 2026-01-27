@@ -31,13 +31,19 @@ export function Navbar() {
 
   return (
     <>
-      {/* Banner */}
-      <div className="w-full bg-gradient-to-r from-blue-600 to-blue-500 overflow-hidden">
-        <a href="https://digiucard.com" target="_blank" rel="noopener noreferrer" className="block">
+      {/* Animated GIF Banner */}
+      <div className="w-full bg-blue-600">
+        <a 
+          href="https://digiucard.com" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="block w-full"
+        >
           <img 
             src="https://xrwnptogkhxeyamjcxhd.supabase.co/storage/v1/object/public/attachments/1769545436803-digiucard_banner.gif"
             alt="DigiUCard Banner"
-            className="w-full h-auto max-h-20 object-contain mx-auto"
+            className="w-full h-16 md:h-20 object-cover"
+            loading="eager"
           />
         </a>
       </div>
