@@ -30,10 +30,22 @@ export function Navbar() {
   ];
 
   return (
-    <header className={`sticky top-0 z-50 transition-all duration-300 ${
-      scrolled ? "bg-white/80 backdrop-blur-lg border-b border-slate-200 py-3" : "bg-transparent py-6"
-    }`}>
-      <div className="max-w-[1400px] mx-auto px-8 flex items-center justify-between">
+    <>
+      {/* Banner */}
+      <div className="w-full bg-gradient-to-r from-blue-600 to-blue-500 overflow-hidden">
+        <a href="https://digiucard.com" target="_blank" rel="noopener noreferrer" className="block">
+          <img 
+            src="https://xrwnptogkhxeyamjcxhd.supabase.co/storage/v1/object/public/attachments/1769545436803-digiucard_banner.gif"
+            alt="DigiUCard Banner"
+            className="w-full h-auto max-h-20 object-contain mx-auto"
+          />
+        </a>
+      </div>
+      
+      <header className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled ? "bg-white/80 backdrop-blur-lg border-b border-slate-200 py-3" : "bg-transparent py-6"
+      }`}>
+        <div className="max-w-[1400px] mx-auto px-8 flex items-center justify-between">
         <Link href="/">
           <a className="font-display text-2xl font-bold tracking-tighter flex items-center gap-2 group">
             <span className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white group-hover:rotate-12 transition-transform">D</span>
@@ -95,6 +107,7 @@ export function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+      </header>
+    </>
   );
 }
